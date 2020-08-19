@@ -92,7 +92,7 @@ export default function Quiz( props: any ) {
 
 	return curQuesIdx < quizContent.length ? (
 		<View style={styles.container}>
-			<View style={{marginTop: '50%'}}>
+			<View style={{ marginTop: '50%', backgroundColor: '#F8F8FF'}}>
 				<Text style={styles.headline}>{quizContent[curQuesIdx].category}</Text>
 				<View style={styles.questionContainer}>
 					<HTML baseFontStyle={{ fontSize: 22 }} html={quizContent[curQuesIdx].question} />
@@ -116,8 +116,8 @@ export default function Quiz( props: any ) {
 			</View>
 		</View>
 	) : (
-		<View style={styles.container}>
-			<View style={{paddingVertical: 10}}>
+			<View style={[styles.container, { marginTop: 10, backgroundColor: '#F8F8FF'}]}>
+				<View style={{ paddingVertical: 10, backgroundColor: '#F8F8FF'}}>
 				<Text style={styles.resultHeadline}>
 					You scored
 				</Text>
@@ -146,15 +146,12 @@ export default function Quiz( props: any ) {
 					</View>
 				))}
 			</ScrollView>
-
-			<View style={{flex: 1, width: '100%'}}>
-				<Button
-					title="Play Again"
-					onPress={() =>
-						props.navigation.replace('Home')
-					}
-				/>
-			</View>
+			<Button
+				title="Play Again"
+				onPress={() =>
+					props.navigation.replace('Home')
+				}
+			/>
 		</View>
 	);
 }
@@ -164,6 +161,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'space-between',
+		backgroundColor: '#F8F8FF'
 	},
 	errorContainer: { 
 		flex: 1, 
@@ -181,7 +179,7 @@ const styles = StyleSheet.create({
 		marginHorizontal: 5,
 		marginVertical: 20,
 		borderColor: 'grey',
-		backgroundColor: '#ccc',
+		backgroundColor: '#fff',
 		borderWidth: 1,
 		borderRadius: 2,
 	},
@@ -200,12 +198,11 @@ const styles = StyleSheet.create({
 	buttonText: {
 		color: '#fff', 
 		fontSize: 24,
-		fontWeight: 'bold',
 	},
 	listItem: {
 		flex: 1,
 		padding: 10,
-		borderColor: '#ccc',
+		borderColor: 'grey',
 		borderWidth: 1,
 		borderRadius: 2,
 		marginBottom: 10,
